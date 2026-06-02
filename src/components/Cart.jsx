@@ -3,7 +3,6 @@ import { CartContext } from "../App";
 import CartItem from "./CartItem";
 
 export default function Cart() {
-  // [Hook] useContext: 전역 저장소에서 목록 배열과 삭제 처리 함수를 동시 수신
   const { cart, removeFromCart } = useContext(CartContext);
 
   const totalAmount = cart.reduce((sum, item) => sum + item.price, 0);

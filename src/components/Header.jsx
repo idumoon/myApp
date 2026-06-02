@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { CartContext } from "../App";
 
 export default function Header() {
-  // [Hook] useContext: 전역 Context로부터 실시간 cart 배열 상태를 구독
   const { cart } = useContext(CartContext);
 
   return (

@@ -1,7 +1,6 @@
 import React, { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 
-// 상품 데이터 타입 정의
 export type Product = {
   id: string;
   name: string;
@@ -10,7 +9,6 @@ export type Product = {
   desc: string;
 };
 
-// 고유 상품 데이터 리스트
 export const productData: Product[] = [
   {
     id: "1",
@@ -43,10 +41,8 @@ export const productData: Product[] = [
 ];
 
 export default function ProductList() {
-  // [Hook 1] useState: 현재 선택된 카테고리 필터 상태 관리 ('all', 'books', 'electronics')
   const [categoryFilter, setCategoryFilter] = useState<string>("all");
 
-  // [Hook 2] useMemo: 카테고리가 변경될 때만 대용량 데이터 연산(필터링)을 재수행하여 성능 최적화
   const filteredProducts = useMemo(() => {
     if (categoryFilter === "all") return productData;
     return productData.filter((product) => product.category === categoryFilter);
@@ -56,7 +52,6 @@ export default function ProductList() {
     <div className="container">
       <h2>🌱 인덕 미니 마켓 상품 목록</h2>
 
-      {/* 과제 가산점을 위한 카테고리 필터 버튼 탭 */}
       <div style={{ display: "flex", gap: "10px", marginBottom: "20px" }}>
         <button
           onClick={() => setCategoryFilter("all")}

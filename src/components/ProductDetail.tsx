@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 import { productData } from "./ProductList.js";
 
-// JS 전역 컨텍스트를 TS 환경에서 안전하게 가져오기 위한 에러 억제 주석 기법
 // @ts-ignore
 import { CartContext } from "../App";
 
@@ -14,10 +13,8 @@ type CartItem = {
 };
 
 export default function ProductDetail() {
-  // [Hook 1] useParams: 라우터 파라미터 값 가져오기
   const { category, id } = useParams<{ category: string; id: string }>();
 
-  // [Hook 2] useContext: App.js가 채워놓은 전역 장바구니 추가 함수 가져오기
   // @ts-ignore
   const { addToCart } = useContext(CartContext);
 
